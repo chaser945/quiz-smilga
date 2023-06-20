@@ -2,6 +2,9 @@
 
 :root {
   --clr-body: #f1f5f8;
+  --clr-btn: #8bcbf9;
+  --clr-yellow: #feb100;
+  --transition: all linear 0.2s;
 }
 
 * {
@@ -13,6 +16,19 @@ body {
   margin: 0;
   background-color: var(--clr-body);
   padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  line-height: 1.6;
 }
 
 label {
@@ -40,6 +56,7 @@ input:focus {
 
 button {
   cursor: pointer;
+  font-family: inherit;
 }
 
 /* SETUP FORM */
@@ -73,6 +90,62 @@ button {
   background-color: #feb100;
   border: none;
   padding: 0.5em;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+/* QUESTION-ARTICLE */
+/* =============== */
+.question-article {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  padding: 1.5em;
+  border-radius: 5px;
+}
+
+.correct-ans {
+  color: green;
+  font-size: 0.8rem;
+}
+
+.correct-ans {
+  align-self: flex-end;
+}
+
+.question-title {
+  letter-spacing: 1px;
+}
+
+.btn {
+  transition: var(--transition);
+}
+
+.btn:hover {
+  color: white;
+}
+
+.btn-ans-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.btn-ans {
+  background-color: var(--clr-btn);
+  border: none;
+  padding: 1em;
+  border-radius: 5px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.next-question {
+  align-self: flex-end;
+  margin-top: 2em;
+  background-color: var(--clr-yellow);
+  border: none;
+  padding: 0.8em;
   border-radius: 5px;
   font-weight: 600;
 }
