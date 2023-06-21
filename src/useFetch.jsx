@@ -28,7 +28,7 @@ const useFetch = (url) => {
   const fetchData = async (url) => {
     try {
       const response = await axios(url)
-      console.log(response.data)
+      // console.log(response.data)
       dispatch({ type: "SET_DATA", payload: { response } })
     } catch (error) {
       console.log(error.response)

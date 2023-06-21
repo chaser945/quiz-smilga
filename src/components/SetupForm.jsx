@@ -1,22 +1,28 @@
 import { useGlobalContext } from "../context"
 
 const SetupForm = () => {
-  const { setupForm, dispatch } = useGlobalContext()
+  const { setupForm, dispatch, fetchData, error } = useGlobalContext()
   const handleChange = (e) => {
     const value = e.target.value
     const name = e.target.name
     dispatch({ type: "HANDLE_CHANGE", payload: { name, value } })
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    fetchData()
+  }
   return (
     <section className="setup-form-wrapper">
       <h1 className="form-title">Setup Quiz</h1>
-      <form className="setup-form">
+      <form className="setup-form" onSubmit={handleSubmit}>
         <label htmlFor="num_of_questions">Number Of Questions</label>
         <input
           id="num_of_questions"
           type="number"
           name="num_of_questions"
           min="1"
+          max="50"
           value={setupForm.num_of_questions}
           onChange={handleChange}
         />
@@ -32,6 +38,11 @@ const SetupForm = () => {
           <option value="medium">medium</option>
           <option value="hard">hard</option>
         </select>
+        {error && (
+          <p className="error-alert">
+            Questions not found! Try with different input values.
+          </p>
+        )}
         <button className="btn-start" type="submit">
           Start
         </button>
